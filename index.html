@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="BundlingwaysBestApp">
+<head>
+    <title>Bundlingway's Best</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="PresetController">
+    <div class="container">
+        <header>
+            <h1><img src="bundlingway_logo.png" alt="Bundlingway Logo" class="logo"> Bundlingway's Best</h1>
+            <p>Welcome, friends! Bundlingway's Best is a collection of my absolute favorite ReShade presets. I've scoured the moon and stars (well, mostly just the internet) to find the most stunning, most effective, and most user-friendly presets out there. Enjoy!</p>
+        </header>
+
+        <main>
+            <div class="preset" ng-repeat="preset in presets">
+                <h2>{{ preset.name }}</h2>
+                <p>By: {{ preset.author }}</p>
+                <a ng-if="preset.url" href="{{ preset.url }}" target="_blank" class="download-button">Download</a>
+                <p ng-if="!preset.url && preset.instructions">{{ preset.instructions }}</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; {{ year }} Bundlingway's Best. All rights reserved. (Probably!)</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -19,6 +19,7 @@
                 <p>By: {{ preset.author }}</p>
                 <a ng-if="preset.url" href="https://gposingway.github.io/http-protocol-redirector/?r=gwpreset://open/?{{ preset.url }}" target="_new" class="download-button">Download</a>
                 <p ng-if="!preset.url && preset.instructions">{{ preset.instructions }}</p>
+                 <a ng-if="preset.alt-url" href="{{ preset.alt-url }}" target="_new" class="download-button">{{ preset.alt-title }}</a>
             </div>
         </main>
 

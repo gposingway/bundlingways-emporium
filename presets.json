@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Moonlit Radiance",
+        "author": "Dreamingway",
+        "url": "https://example.com/moonlit-radiance.zip"
+    },
+    {
+        "name": "Starlight Symphony",
+        "author": "Knowingway",
+        "url": "https://example.com/starlight-symphony.zip"
+    },
+    {
+        "name": "Eorzean Dawn",
+        "author": "Warrior of Light",
+        "instructions": "Download available from the 'Warriors of Light and Darkness' Discord server in the #reshade-presets channel."
+    },
+    {
+        "name": "Carrot Crunch",
+        "author": "Bundlingway",
+        "url": "https://example.com/carrot-crunch.zip"
+    }
+]

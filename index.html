@@ -17,7 +17,7 @@
             <div class="preset" ng-repeat="preset in presets">
                 <h2>{{ preset.name }}</h2>
                 <p>By: {{ preset.author }}</p>
-                <a ng-if="preset.url" href="{{ preset.url }}" target="_blank" class="download-button">Download</a>
+                <a ng-if="preset.url" href="gwpreset://{{ preset.url }}" target="_blank" class="download-button">Download</a>
                 <p ng-if="!preset.url && preset.instructions">{{ preset.instructions }}</p>
             </div>
         </main>

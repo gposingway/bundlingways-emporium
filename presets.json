@@ -1,22 +1,23 @@
 [
     {
-        "name": "Moonlit Radiance 2",
-        "author": "Dreamingway",
-        "url": "https://example.com/moonlit-radiance.zip"
+        "name": "DIVINE | ReShade Presets",
+        "author": "Elsie",
+        "url": "https://xivmodarchive.com/private/0aa03eca-4b5b-44f7-9d3c-dff7eb70d225/files/DIVINE%20Presets%20(Elsie).rar"
     },
     {
-        "name": "Starlight Symphony",
-        "author": "Knowingway",
-        "url": "https://example.com/starlight-symphony.zip"
+        "name": "Dawntrail Job Action ReShade/GShade preset",
+        "author": "shiftertime",
+        "url": "https://xivmodarchive.com/private/ef5c7e3e-d3d5-466e-8799-6b472e403ea0/files/Shifter%20Job%20Actions%20Preset.rar"
     },
     {
-        "name": "Eorzean Dawn",
+        "name": "Neneko Color's Universe",
         "author": "Warrior of Light",
-        "instructions": "Download available from the 'Warriors of Light and Darkness' Discord server in the #reshade-presets channel."
+        "instructions": "Download available from Neneko's Discord server in the #neneko-colors channel.",
+        "alt-url": "https://discord.gg/neneko-s-universe-963831210252066816"
     },
     {
-        "name": "Carrot Crunch",
-        "author": "Bundlingway",
-        "url": "https://example.com/carrot-crunch.zip"
+        "name": "[Ruby Blaire] Complete Shader Pack",
+        "author": "Ruby Blaire",
+        "url": "https://xivmodarchive.com/private/890ad11d-a53c-400b-8005-38c70eb2cac1/files/%5BRuby%20Blaire%5D%20Complete%20Shader%20Pack.zip"
     }
 ]

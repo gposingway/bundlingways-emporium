@@ -1,0 +1,62 @@
+body {
+    font-family: sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    height: 64px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #7D75C8; /* Loporrit purple */
+}
+
+.preset {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.preset h2 {
+    margin-top: 0;
+    color: #7D75C8; /* Loporrit purple */
+}
+
+.download-button {
+    display: inline-block;
+    background-color: #7D75C8; /* Loporrit purple */
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.download-button:hover {
+    background-color: #9A90E8;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8em;
+}

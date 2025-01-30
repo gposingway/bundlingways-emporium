@@ -49,7 +49,7 @@
                         <a ng-if="preset.SourceUrl" href="{{ preset.SourceUrl }}" class="download-button">Source</a>
                     </div>
                     <div class="col">
-                        <button ng-if="preset.PackageUrl" ng-click="openInBundlingway('gwpreset://open/?' + preset.Url)" class="download-button">Install</button>
+                        <button ng-if="preset.PackageUrl" ng-click="openInBundlingway('gwpreset://open/?' + preset.PackageUrl)" class="download-button">Install</button>
                         <a ng-if="preset.AlternateUrl" href="{{ preset.AlternateUrl }}" target="_new" class="download-button">{{ preset.AlternateTitle }}</a>
                     </div>
                 </div>

@@ -2,7 +2,7 @@ angular.module('BundlingwaysBestApp', [])
     .controller('PresetController', function($scope, $http) {
         $scope.year = new Date().getFullYear();
 
-        $scope.open = function(url){
+        $scope.openInBundlingway = function(url){
             window.location.replace(url);
         }
 

@@ -17,7 +17,7 @@
             <div class="preset" ng-repeat="preset in presets">
                 <h2>{{ preset.Name }}</h2>
                 <p>By: {{ preset.Author }}</p>
-                <a ng-if="preset.Url" ng-click="openInBundlingway('gwpreset://open/?' + preset.Url')" target="_new" class="download-button">Download</a>
+                <button ng-if="preset.Url" ng-click="openInBundlingway('gwpreset://open/?' + preset.Url)" class="download-button">Download</button>
                 <p ng-if="preset.Description">{{ preset.Description }}</p>
                 <p ng-if="preset.Instructions">{{ preset.Instructions }}</p>
                  <a ng-if="preset.AlternateUrl" href="{{ preset.AlternateUrl }}" target="_new" class="download-button">{{ preset.AlternateTitle }}</a>

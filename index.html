@@ -15,11 +15,12 @@
 
         <main>
             <div class="preset" ng-repeat="preset in presets">
-                <h2>{{ preset.name }}</h2>
-                <p>By: {{ preset.author }}</p>
-                <a ng-if="preset.url" href="https://gposingway.github.io/http-protocol-redirector/?r=gwpreset://open/?{{ preset.url }}" target="_new" class="download-button">Download</a>
-                <p ng-if="!preset.url && preset.instructions">{{ preset.instructions }}</p>
-                 <a ng-if="preset.altUrl" href="{{ preset.altUrl }}" target="_new" class="download-button">{{ preset.altTitle }}</a>
+                <h2>{{ preset.Name }}</h2>
+                <p>By: {{ preset.Author }}</p>
+                <a ng-if="preset.Url" href="https://gposingway.github.io/http-protocol-redirector/?r=gwpreset://open/?{{ preset.Url }}" target="_new" class="download-button">Download</a>
+                <p ng-if="preset.Description">{{ preset.Description }}</p>
+                <p ng-if="preset.Instructions">{{ preset.Instructions }}</p>
+                 <a ng-if="preset.AlternateUrl" href="{{ preset.AlternateUrl }}" target="_new" class="download-button">{{ preset.AlternateTitle }}</a>
             </div>
         </main>
 

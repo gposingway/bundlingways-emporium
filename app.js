@@ -6,7 +6,7 @@ angular.module('BundlingwaysBestApp', [])
             window.location.replace(url);
         }
 
-        $http.get('https://www.sightsofeorzea.com/api/data/presetCollection')
+        $http.get('https://www.sightsofeorzea.com/api/data/presetCollection?sort=-PackageUrl')
             .then(function(response) {
                 $scope.presets = response.data;
             })

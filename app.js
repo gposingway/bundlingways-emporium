@@ -2,7 +2,7 @@ angular.module('BundlingwaysBestApp', [])
     .controller('PresetController', function($scope, $http) {
         $scope.year = new Date().getFullYear();
 
-        $http.get('presets.json')
+        $http.get('https://www.sightsofeorzea.com/api/data/presetCollection')
             .then(function(response) {
                 $scope.presets = response.data;
             })

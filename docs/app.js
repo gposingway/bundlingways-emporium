@@ -1,8 +1,29 @@
 angular.module('BundlingwaysBestApp', [])
     .controller('PresetController', function($scope, $http) {
         $scope.year = new Date().getFullYear();
+        $scope.lastSortField = null;
+        $scope.sortAscending = true;
 
-        $scope.openInBundlingway = function(url){
+        $scope.sortBy = function (field) {
+            if ($scope.lastSortField === field) {
+                $scope.sortAscending = !$scope.sortAscending;
+            } else {
+                $scope.sortAscending = true;
+            }
+            $scope.lastSortField = field;
+
+            $scope.presets.sort(function (a, b) {
+                if (a[field] < b[field]) {
+                    return $scope.sortAscending ? -1 : 1;
+                }
+                if (a[field] > b[field]) {
+                    return $scope.sortAscending ? 1 : -1;
+                }
+                return 0;
+            });
+        };
+
+        $scope.openInBundlingway = function (url) {
             window.location.replace(url);
         }
 

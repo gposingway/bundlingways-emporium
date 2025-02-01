@@ -1,8 +1,11 @@
 angular.module('BundlingwaysEmporiumApp', [])
-    .controller('PresetController', function($scope, $http) {
+    .controller('PresetController', function ($scope, $http, $location) {
         $scope.year = new Date().getFullYear();
         $scope.lastSortField = null;
         $scope.sortAscending = true;
+        $scope.searchText = $location.search().q || '';
+
+        $scope.$watch('searchText', function (newVal) { $location.search('q', newVal); });
 
         $scope.sortBy = function (field) {
             if ($scope.lastSortField === field) {
@@ -38,16 +41,15 @@ angular.module('BundlingwaysEmporiumApp', [])
             });
         };
 
-
         $scope.openInBundlingway = function (url) {
             window.location.replace(url);
         }
 
         $http.get('https://www.sightsofeorzea.com/api/data/presetCollection?sort=-PackageUrl')
-            .then(function(response) {
+            .then(function (response) {
                 $scope.presets = response.data;
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 console.error('Error loading presets:', error);
                 $scope.presets = [
                     {

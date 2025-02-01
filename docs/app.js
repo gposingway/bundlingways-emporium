@@ -33,7 +33,9 @@ angular.module('BundlingwaysEmporiumApp', [])
                 '&lt;': '<',
                 '&gt;': '>',
                 '&quot;': '"',
-                '&apos;': "'"
+                '&apos;': "'",
+                '&#39;': "'",
+                '&#34;': '"'
             };
 
             return text.replace(/&[a-z]+;/g, function (match) {

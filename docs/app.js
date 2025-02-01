@@ -1,4 +1,4 @@
-angular.module('BundlingwaysBestApp', [])
+angular.module('BundlingwaysEmporiumApp', [])
     .controller('PresetController', function($scope, $http) {
         $scope.year = new Date().getFullYear();
         $scope.lastSortField = null;

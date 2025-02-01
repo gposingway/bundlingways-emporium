@@ -95,10 +95,15 @@
                                                         </div>
                                                     </td>
                                                     <td style="max-width: 150px;">
-                                                        <button ng-if="preset.PackageUrl" ng-click="openInBundlingway('gwpreset://open/?' + preset.PackageUrl)" class="btn btn-outline-primary bx-pull-right">
-                                                            Install
-                                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.PackageUrl}}" alt="icon" style="width: 16px; height: 16px; margin-left: 5px;">
-                                                        </button>
+                                                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                                            <button ng-if="preset.PackageUrl" ng-click="openInBundlingway('gwpreset://open/?' + preset.PackageUrl)" class="btn btn-outline-primary">
+                                                                Install
+                                                                <img ng-src="https://www.google.com/s2/favicons?domain={{preset.PackageUrl}}" alt="icon" style="width: 16px; height: 16px; margin-left: 5px;">
+                                                            </button>
+                                                            <a ng-if="preset.PackageUrl" href="{{ preset.PackageUrl }}" class="btn btn-outline-primary" download title="Download">
+                                                                <i class="icon-base bx bx-cloud-download icon-md"></i>
+                                                            </a>
+                                                        </div>
                                                         <a ng-if="preset.AlternateUrl" href="{{ preset.AlternateUrl }}" target="_new" class="btn btn-outline-primary bx-pull-right">
                                                             {{ preset.AlternateTitle }}
                                                             <img ng-src="https://www.google.com/s2/favicons?domain={{preset.AlternateUrl}}" alt="icon" style="width: 16px; height: 16px; margin-left: 5px;">

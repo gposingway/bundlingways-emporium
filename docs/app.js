@@ -23,6 +23,22 @@ angular.module('BundlingwaysBestApp', [])
             });
         };
 
+        $scope.replaceSpecialCharacters = function (text) {
+            const charMap = {
+                '&bull;': '•',
+                '&amp;': '&',
+                '&lt;': '<',
+                '&gt;': '>',
+                '&quot;': '"',
+                '&apos;': "'"
+            };
+
+            return text.replace(/&[a-z]+;/g, function (match) {
+                return charMap[match] || match;
+            });
+        };
+
+
         $scope.openInBundlingway = function (url) {
             window.location.replace(url);
         }

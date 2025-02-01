@@ -21,10 +21,10 @@
     <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-          rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
 
     <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
 
@@ -53,53 +53,38 @@
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-
-                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-                     id="layout-navbar">
-                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                        <!-- Search -->
-                        <div class="navbar-nav align-items-center">
-                            <div class="nav-item d-flex align-items-center">
-                                <i class="bx bx-search bx-md"></i>
-                                <input type="text"
-                                       class="form-control border-0 shadow-none ps-1 ps-sm-2"
-                                       placeholder="Search..."
-                                       aria-label="Search..."
-                                       ng-model="searchText" />
-                            </div>
-                        </div>
-                        <!-- /Search -->
-
-                    </div>
-                </nav>
-
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
                     <!-- Content -->
-
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
                             <div class="col-sm-4">
                             </div>
                             <div class="col-sm-8">
                                 <div class="card">
-                                    <h5 class="card-header">Preset Catalog</h5>
                                     <div class="table-responsive text-nowrap">
-                                        <table class="datatables-basic table table-responsive dataTable dtr-column collapsed table-responsive-sm">
+                                        <table class="datatables-basic table table-responsive dataTable dtr-column collapsed table-responsive-sm table-hover">
                                             <thead>
-                                                <tr>
-                                                    <th><a href="" ng-click="sortBy('Name')">Preset</a></th>
-                                                    <th><a href="" ng-click="sortBy('Author')">Author</a></th>
-                                                    <th style="max-width: 150px;">Actions</th>
+                                                <tr class="bg-black align-baseline">
+                                                    <th><a href="" ng-click="sortBy('Name')" class="text-light">Name</a></th>
+                                                    <th><a href="" ng-click="sortBy('Author')" class="text-light">Author</a></th>
+                                                    <th style="max-width: 150px;">
+                                                        <input type="text"
+                                                               class="form-control form-control rounded-pill bg-light"
+                                                               placeholder="Search..."
+                                                               aria-label="Search..."
+                                                               ng-model="searchText" />
+                                                    </th>
                                                 </tr>
                                             </thead>
                                             <tbody class="table-border-bottom-0">
                                                 <tr ng-repeat="preset in presets | filter:searchText">
                                                     <td style="max-width: 350px;">
                                                         <div class="text-truncate">
-                                                            <a ng-href="{{preset.SourceUrl}}" target="_new" title="Check it out at {{preset.SourceUrl}}">
+                                                            <a class="text-dark" ng-href="{{preset.SourceUrl}}" target="_new" title="Check it out at {{preset.SourceUrl}}">
                                                                 <img ng-src="https://www.google.com/s2/favicons?domain={{preset.SourceUrl}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
+                                                                {{ replaceSpecialCharacters(preset.Name) }}
                                                                 {{ preset.Name }}
                                                             </a>
                                                         </div>
@@ -110,7 +95,10 @@
                                                         </div>
                                                     </td>
                                                     <td style="max-width: 150px;">
-                                                        <button ng-if="preset.PackageUrl" ng-click="openInBundlingway('gwpreset://open/?' + preset.PackageUrl)" class="btn btn-primary bx-pull-right">Install</button>
+                                                        <button ng-if="preset.PackageUrl" ng-click="openInBundlingway('gwpreset://open/?' + preset.PackageUrl)" class="btn btn-outline-primary bx-pull-right">
+                                                            Install
+                                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.PackageUrl}}" alt="icon" style="width: 16px; height: 16px; margin-left: 5px;">
+                                                        </button>
                                                         <a ng-if="preset.AlternateUrl" href="{{ preset.AlternateUrl }}" target="_new" class="btn btn-outline-primary bx-pull-right">
                                                             {{ preset.AlternateTitle }}
                                                             <img ng-src="https://www.google.com/s2/favicons?domain={{preset.AlternateUrl}}" alt="icon" style="width: 16px; height: 16px; margin-left: 5px;">

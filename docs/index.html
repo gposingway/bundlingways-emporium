@@ -67,7 +67,9 @@
                                         <table class="datatables-basic table table-responsive dataTable dtr-column collapsed table-responsive-sm table-hover">
                                             <thead>
                                                 <tr class="bg-black align-baseline">
-                                                    <th><a href="" ng-click="sortBy('Name')" class="text-light">Name</a></th>
+                                                    <th>
+                                                        <a href="" ng-click="sortBy('Name')" class="text-light">Name</a>
+                                                    </th>
                                                     <th><a href="" ng-click="sortBy('Author')" class="text-light">Author</a></th>
                                                     <th style="max-width: 150px;">
                                                         <input type="text"
@@ -79,13 +81,11 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="table-border-bottom-0">
-                                                <tr ng-repeat="preset in presets | filter:searchText">
-                                                    <td style="max-width: 350px;">
+                                                <tr ng-repeat-start="preset in presets | filter:searchText">
+                                                    <td style="max-width: 350px;" class="pe-auto" ng-click="UI.selectedId = (UI.selectedId == preset.Id ? null: preset.Id)">
                                                         <div class="text-truncate">
-                                                            <a class="text-dark" ng-href="{{preset.SourceUrl}}" target="_new" title="Check it out at {{preset.SourceUrl}}">
-                                                                <img ng-src="https://www.google.com/s2/favicons?domain={{preset.SourceUrl}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
-                                                                {{ replaceSpecialCharacters(preset.Name) }}
-                                                            </a>
+                                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.SourceUrl}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
+                                                            {{ replaceSpecialCharacters(preset.Name) }}
                                                         </div>
                                                     </td>
                                                     <td style="max-width: 150px;">
@@ -109,14 +109,27 @@
                                                         </a>
                                                     </td>
                                                 </tr>
+                                                <tr ng-repeat-end ng-if="UI.selectedId == preset.Id">
+                                                    <td colspan="3" class="text-wrap">
+                                                        <div class="row">
+                                                            <div class="col-sm-9">
+                                                                {{preset.Description | prettyFormat}}
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <a class="btn btn-outline-primary bx-pull-right" ng-href="{{preset.SourceUrl}}" target="_new" title="Check it out at {{preset.SourceUrl}}">
+                                                                    <img ng-src="https://www.google.com/s2/favicons?domain={{preset.SourceUrl}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
+                                                                    Source
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                     <!-- / Content -->
                     <!-- Footer -->

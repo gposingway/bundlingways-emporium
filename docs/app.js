@@ -1,9 +1,14 @@
 angular.module('BundlingwaysEmporiumApp', [])
     .controller('PresetController', function ($scope, $http, $location) {
+        $scope.selectedId = null;
         $scope.year = new Date().getFullYear();
         $scope.lastSortField = null;
         $scope.sortAscending = true;
         $scope.searchText = $location.search().q || '';
+
+        $scope.UI = {
+            selectedId : null
+        };
 
         $scope.$watch('searchText', function (newVal) { $location.search('q', newVal); });
 
@@ -61,4 +66,10 @@ angular.module('BundlingwaysEmporiumApp', [])
                     }
                 ]
             });
+    })
+    .filter('prettyFormat', function () {
+        return function (text) {
+            text = text.replace(/\n/g, '<br/>');
+            return text;
+        };
     });

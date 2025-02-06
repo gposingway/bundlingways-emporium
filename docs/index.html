@@ -1,12 +1,7 @@
 <!doctype html>
 
 <html lang="en"
-      class="light-style layout-menu-fixed layout-compact"
       dir="ltr"
-      data-theme="theme-default"
-      data-assets-path="assets/"
-      data-template="vertical-menu-template-free"
-      data-style="light"
       ng-app="BundlingwaysEmporiumApp">
 <head>
     <meta charset="utf-8" />
@@ -20,30 +15,41 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
-
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="assets/css/demo.css" />
-
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
-    <!-- Page CSS -->
-    <!-- Helpers -->
-    <script src="assets/vendor/js/helpers.js"></script>
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="assets/js/config.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.3/angular-sanitize.min.js" integrity="sha512-dqbRITjlgYAKHWHwL8fK7VPOsFc702ybywomtYLRcjOzBHM3WgEGN0SQQR6IJKY4ZiJiZkNguOAcFZmalk+2sA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="app.js"></script>
+
+    <style>
+        .catalog .catalog-item.row:hover {
+            background-color: #e8e9ea;
+        }
+
+        .catalog .catalog-item.row {
+            border: 0px solid #eee;
+            border-width: 1px 0 0 0;
+        }
+
+        .bg-black {
+            background-color: #222 !important;
+        }
+
+            .bg-black a {
+                color: white;
+            }
+
+        .catalog a.padded {
+            display: inline-block;
+            padding: 4px 0 0 0;
+        }
+    </style>
+
+
 </head>
 
 <body ng-controller="PresetController">
@@ -57,125 +63,62 @@
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
                     <!-- Content -->
-                    <div class="container-xxl flex-grow-1 container-p-y">
+                    <div class="container flex-grow-1 container-p-y">
                         <div class="row">
-                            <div class="col-sm-4">
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="card">
-                                    <div class="table-responsive text-nowrap">
-                                        <table class="datatables-basic table table-responsive dataTable dtr-column collapsed table-responsive-sm table-hover">
-                                            <thead>
-                                                <tr class="bg-black align-baseline">
-                                                    <th>
-                                                        <a href="" ng-click="sortBy('Name')" class="text-light">Name</a>
-                                                    </th>
-                                                    <th><a href="" ng-click="sortBy('Author')" class="text-light">Author</a></th>
-                                                    <th style="max-width: 150px;">
-                                                        <input type="text"
-                                                               class="form-control form-control rounded-pill bg-light"
-                                                               placeholder="Search..."
-                                                               aria-label="Search..."
-                                                               ng-model="searchText" />
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="table-border-bottom-0">
-                                                <tr ng-repeat-start="preset in presets | filter:searchText">
-                                                    <td style="max-width: 350px;" class="pe-auto" ng-click="UI.selectedId = (UI.selectedId == preset.Id ? null: preset.Id)">
-                                                        <div class="text-truncate">
-                                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.SourceUrl}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
-                                                            {{ replaceSpecialCharacters(preset.Name) }}
-                                                        </div>
-                                                    </td>
-                                                    <td style="max-width: 150px;">
-                                                        <div class="text-truncate">
-                                                            {{ preset.Author }}
-                                                        </div>
-                                                    </td>
-                                                    <td style="max-width: 150px;">
-                                                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                                            <button ng-if="preset.PackageUrl" ng-click="openInBundlingway('gwpreset://open/?' + preset.PackageUrl)" class="btn btn-outline-primary">
-                                                                Install
-                                                                <img ng-src="https://www.google.com/s2/favicons?domain={{preset.PackageUrl}}" alt="icon" style="width: 16px; height: 16px; margin-left: 5px;">
-                                                            </button>
-                                                            <a ng-if="preset.PackageUrl" href="{{ preset.PackageUrl }}" class="btn btn-outline-primary" download title="Download">
-                                                                <i class="icon-base bx bx-cloud-download icon-md"></i>
-                                                            </a>
-                                                        </div>
-                                                        <a ng-if="preset.AlternateUrl" href="{{ preset.AlternateUrl }}" target="_new" class="btn btn-outline-primary bx-pull-right">
-                                                            {{ preset.AlternateTitle }}
-                                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.AlternateUrl}}" alt="icon" style="width: 16px; height: 16px; margin-left: 5px;">
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr ng-repeat-end ng-if="UI.selectedId == preset.Id">
-                                                    <td colspan="3" class="text-wrap">
-                                                        <div class="row">
-                                                            <div class="col-sm-9">
-                                                                {{preset.Description | prettyFormat}}
-                                                            </div>
-                                                            <div class="col-sm-3">
-                                                                <a class="btn btn-outline-primary bx-pull-right" ng-href="{{preset.SourceUrl}}" target="_new" title="Check it out at {{preset.SourceUrl}}">
-                                                                    <img ng-src="https://www.google.com/s2/favicons?domain={{preset.SourceUrl}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
-                                                                    Source
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                            <div class="col-sm-12 catalog">
+                                <div class="row py-2 bg-black">
+                                    <div class="col-sm-1">
+                                        <a href="" ng-click="sortBy('PackageType')" class="text-light padded">Type <i class="fa-solid fa-chevron-down"></i></a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a href="" ng-click="sortBy('Name')" class="text-light padded">Name <i class="fa-solid fa-chevron-down"></i></a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="" ng-click="sortBy('Author')" class="text-light padded">Author <i class="fa-solid fa-chevron-down"></i></a>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text"
+                                               class="form-control form-control rounded-pill bg-light"
+                                               placeholder="Search..."
+                                               aria-label="Search..."
+                                               ng-model="searchText" />
+                                    </div>
+                                </div>
+                                <div class="row py-2 catalog-item" ng-repeat="preset in presets | filter:searchText">
+                                    <div class="col-sm-1">
+                                        {{ preset.PackageType }}
+                                    </div>
+                                    <div class="col-sm-6 text-truncate">
+                                        <a class="" ng-href="{{preset.SourceUrl}}" target="_new" title="Check it out at {{preset.SourceUrl}}">
+                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.SourceUrl}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
+                                            <span ng-bind-html="preset.Name" class="htmlComment"></span>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <span ng-bind-html="preset.Author" class="htmlComment"></span>
+                                    </div>
+                                    <div class="col-sm-3 text-right">
+                                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                            <button ng-if="preset.PackageUrl" ng-click="openInBundlingway('gwpreset://open/?' + preset.PackageUrl)" class="btn btn-outline-primary btn-sm">
+                                                Install
+                                            </button>
+                                            <a ng-if="preset.PackageUrl" href="{{ preset.PackageUrl }}" class="btn btn-outline-primary btn-sm" download title="Download">
+                                                <i class="fa-solid fa-download"></i>
+                                            </a>
+                                        </div>
+                                        <a ng-if="preset.AlternateUrl" href="{{ preset.AlternateUrl }}" target="_new" class="btn btn-outline-primary bx-pull-right btn-sm">
+                                            {{ preset.AlternateTitle }}
+                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.AlternateUrl}}" alt="icon" style="width: 16px; height: 16px; margin-left: 5px;">
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- / Content -->
-                    <!-- Footer -->
-                    <footer class="content-footer footer bg-footer-theme">
-                        <div class="container-xxl">
-                            <div class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
-                                <div class="text-body">
-                                    ©
-                                    <script>
-                                        document.write(new Date().getFullYear());
-                                    </script>
-                                    , made with ❤️ by
-                                    <a href="https://themeselection.com" target="_blank" class="footer-link">ThemeSelection</a>
-                                </div>
-                                <div class="d-none d-lg-inline-block">
-                                    <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
-                    <!-- / Footer -->
-
                     <div class="content-backdrop fade"></div>
                 </div>
-                <!-- Content wrapper -->
             </div>
-            <!-- / Layout page -->
         </div>
     </div>
-    <!-- / Layout wrapper -->
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-
-    <script src="assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="assets/vendor/libs/popper/popper.js"></script>
-    <script src="assets/vendor/js/bootstrap.js"></script>
-    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="assets/vendor/js/menu.js"></script>
-
-    <!-- endbuild -->
-    <!-- Vendors JS -->
-    <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
-
-    <!-- Page JS -->
-    <!-- Place this tag before closing body tag for github widget button. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

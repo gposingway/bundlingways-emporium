@@ -1,4 +1,4 @@
-angular.module('BundlingwaysEmporiumApp', [])
+angular.module('BundlingwaysEmporiumApp', ["ngSanitize"])
     .controller('PresetController', function ($scope, $http, $location) {
         $scope.selectedId = null;
         $scope.year = new Date().getFullYear();
@@ -48,11 +48,11 @@ angular.module('BundlingwaysEmporiumApp', [])
             });
         };
 
-        $scope.openInBundlingway = function (url) {
+        $scope.openInBundlingway = function (packageId, url) {
             window.location.replace(url);
         }
 
-        $http.get('https://www.sightsofeorzea.com/api/data/presetCollection?sort=-PackageUrl')
+        $http.get('https://www.sightsofeorzea.com/api/data/presetCollection?sort=-PackageType')
             .then(function (response) {
                 $scope.presets = response.data;
             })

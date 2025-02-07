@@ -48,7 +48,7 @@ angular.module('BundlingwaysEmporiumApp', ["ngSanitize"])
             });
         };
 
-        $scope.openInBundlingway = function (packageId, url) {
+        $scope.openInBundlingway = function (url) {
             window.location.replace(url);
         }
 

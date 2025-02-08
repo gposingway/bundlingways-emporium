@@ -8,10 +8,10 @@ Whether you’re looking to enhance your screenshots, refine your visuals, or si
 
 ## 📌 What is the Emporium?
 
-The Emporium gathers and organizes links to the best preset and shader collections, ensuring you always have access to the latest and greatest visual enhancements. No more endless searching—just hop in and discover!
+The Emporium gathers and organizes links to the best preset and shader collections. No more endless searching—just hop in and discover new gems!
 
 ## 🌍 Sources
-The EMporium is a compilation of resources from some of the most popular and reliable sources, including:
+The Emporium is a compilation of resources from some of the most popular sources, including:
 
 - **[Aetherlink](https://aetherlink.app/)** – A website designed to help you find mods for your favorite games.
 - **[Glamour Dresser](https://www.glamourdresser.com/)** – Find an archive of hair, body, clothing FFXIV mods and more at the Glamour Dresser.

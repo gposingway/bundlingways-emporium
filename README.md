@@ -1,10 +1,8 @@
-[Give it a try!](https://gposingway.github.io/bundlingways-emporium/)
-
-
-
 # Bundlingway's Emporium
 
-Welcome to your one-stop hop for the finest ReShade presets and shaders this side of Mare Lamentorum! Curated with Loporrit love and a keen eye for quality. ✨🐰
+Welcome to your one-stop hop for the finest ReShade presets and shaders this side of Mare Lamentorum! Curated with Loporrit love. ✨🐰
+
+### [Give it a try!](https://gposingway.github.io/bundlingways-emporium/)
 
 Whether you’re looking to enhance your screenshots, refine your visuals, or simply explore new styles, the Emporium is here to make your search easier than ever.
 

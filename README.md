@@ -1,10 +1,8 @@
-[Give it a try!](https://gposingway.github.io/bundlingways-emporium/)
-
-
-
 # Bundlingway's Emporium
 
-Welcome to your one-stop hop for the finest ReShade presets and shaders this side of Mare Lamentorum! Curated with Loporrit love and a keen eye for quality. ✨🐰
+Welcome to your one-stop hop for the finest ReShade presets and shaders this side of Mare Lamentorum! Curated with Loporrit love. ✨🐰
+
+### [Give it a try!](https://gposingway.github.io/bundlingways-emporium/)
 
 Whether you’re looking to enhance your screenshots, refine your visuals, or simply explore new styles, the Emporium is here to make your search easier than ever.
 
@@ -15,11 +13,11 @@ The Emporium gathers and organizes links to the best preset and shader collectio
 ## 🌍 Sources
 The EMporium is a compilation of resources from some of the most popular and reliable sources, including:
 
-- **GitHub** – Find open-source presets and shader tools.
-- **Aetherlink** – Explore a variety of community-driven presets.
-- **Glamour Dresser** – A hub for aesthetic enhancements.
-- **XIV Mod Archive** – A massive collection of user-submitted presets and mods.
-- **Nexus Mods** – A dedicated space for high-quality mod uploads.
+- **[Aetherlink](https://aetherlink.app/)** – A website designed to help you find mods for your favorite games.
+- **[Glamour Dresser](https://www.glamourdresser.com/)** – Find an archive of hair, body, clothing FFXIV mods and more at the Glamour Dresser.
+- **[GitHub](https://github.com/)** – A proprietary developer platform that allows developers to create, store, manage, and share their code.
+- **[Nexus Mods](https://www.nexusmods.com/)** – A website that hosts computer game mods and other user-created content related to video game modding.
+- **[XIV Mod Archive](https://www.xivmodarchive.com/)** – Browse and Search Final Fantasy XIV mods with ease.
 - **Individual Discord Servers** – Dive into niche communities sharing exclusive presets and shaders.
 
 ## 🔍 How to Use the Emporium

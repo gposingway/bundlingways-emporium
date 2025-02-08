@@ -34,9 +34,6 @@
             background-attachment: fixed;
         }
 
-
-
-
         .catalog .catalog-item.row:hover {
             background-color: #e8e9ea;
         }
@@ -66,6 +63,7 @@
         .m-t-1 {
             margin-top: 1em;
         }
+
         .m-b-1 {
             margin-bottom: 1em;
         }
@@ -86,20 +84,11 @@
                 <div class="content-wrapper">
                     <!-- Content -->
                     <div class="container flex-grow-1 container-p-y">
-
                         <div class="row">
                             <div class="card col-sm-12 m-t-1 m-b-1">
                                 <div class="card-body p-2">
                                     <h4 class="card-title">Bundlingway's Emporium</h4>
-                                    <p class="card-text">Welcome to your one-stop hop for the finest ReShade presets and shaders this side of Mare Lamentorum! Curated with Loporrit love and a keen eye for quality.</p>
-                                    <div class="text-right">
-                                        <a href="https://github.com/gposingway/bundlingways-emporium" target="_blank" class="card-link">
-                                            <img ng-src="https://www.google.com/s2/favicons?domain=https://github.com" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">Project Page
-                                        </a>
-                                        <a href="https://bsky.app/profile/leon.aquitaine.social" target="_blank" class="card-link">
-                                            <img ng-src="https://www.google.com/s2/favicons?domain=https://bsky.app" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">Leon Aquitaine
-                                        </a>
-                                    </div>
+                                    <p class="card-text">Welcome to your one-stop hop for the finest ReShade presets and shaders this side of Mare Lamentorum! Curated with Loporrit love.</p>
                                 </div>
                             </div>
                         </div>
@@ -148,6 +137,26 @@
                                         <a ng-if="preset.AlternateUrl" href="{{ preset.AlternateUrl }}" target="_new" class="btn btn-outline-primary bx-pull-right btn-sm">
                                             {{ preset.AlternateTitle }}
                                             <img ng-src="https://www.google.com/s2/favicons?domain={{preset.AlternateUrl}}" alt="icon" style="width: 16px; height: 16px; margin-left: 5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card col-sm-12 m-t-1 m-b-1">
+                                <div class="card-body p-2">
+                                    <div class="text-right">
+                                        <a href="https://github.com/gposingway/bundlingway" target="_blank" class="card-link">
+                                            <img ng-src="https://www.google.com/s2/favicons?domain=https://github.com" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">Bundlingway
+                                        </a>
+                                        <a href="https://github.com/gposingway/bundlingways-emporium" target="_blank" class="card-link">
+                                            <img ng-src="https://www.google.com/s2/favicons?domain=https://github.com" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">Emporium
+                                        </a>
+                                        <a href="https://github.com/gposingway/gposingway" target="_blank" class="card-link">
+                                            <img ng-src="https://www.google.com/s2/favicons?domain=https://github.com" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">GPosingway
+                                        </a>
+                                        <a href="https://bsky.app/profile/leon.aquitaine.social" target="_blank" class="card-link">
+                                            <img ng-src="https://www.google.com/s2/favicons?domain=https://bsky.app" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">Leon Aquitaine
                                         </a>
                                     </div>
                                 </div>

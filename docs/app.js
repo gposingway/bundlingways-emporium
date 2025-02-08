@@ -31,23 +31,6 @@ angular.module('BundlingwaysEmporiumApp', ["ngSanitize"])
             });
         };
 
-        $scope.replaceSpecialCharacters = function (text) {
-            const charMap = {
-                '&bull;': '•',
-                '&amp;': '&',
-                '&lt;': '<',
-                '&gt;': '>',
-                '&quot;': '"',
-                '&apos;': "'",
-                '&#39;': "'",
-                '&#34;': '"'
-            };
-
-            return text.replace(/&[a-z]+;/g, function (match) {
-                return charMap[match] || match;
-            });
-        };
-
         $scope.openInBundlingway = function (url) {
             window.location.replace(url);
         }

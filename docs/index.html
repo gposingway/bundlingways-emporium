@@ -69,20 +69,22 @@
         .m-b-1 {
             margin-bottom: 1em;
         }
+
+        .float-right{
+            float:right;
+        }
+
+        .faded{
+            opacity:50%;
+        }
     </style>
 </head>
 
 <body ng-controller="PresetController">
-    <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar layout-without-menu">
         <div class="layout-container">
-            <!-- Layout container -->
             <div class="layout-page">
-                <!-- Navbar -->
-                <!-- / Navbar -->
-                <!-- Content wrapper -->
                 <div class="content-wrapper">
-                    <!-- Content -->
                     <div class="container flex-grow-1 container-p-y">
                         <div class="row">
                             <div class="card col-sm-12 m-t-1 m-b-1">
@@ -100,6 +102,9 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <a href="" ng-click="sortBy('Name')" class="text-light padded">Name <i class="fa-solid fa-chevron-down"></i></a>
+                                        <span class="text-white float-right faded" style="padding-top:5px;" ng-if="!!filteredPresets">
+                                            {{filteredPresets.length}} / {{presets.length}} packages
+                                        </span>
                                     </div>
                                     <div class="col-sm-2">
                                         <a href="" ng-click="sortBy('Author')" class="text-light padded">Author <i class="fa-solid fa-chevron-down"></i></a>
@@ -112,7 +117,7 @@
                                                ng-model="searchText" />
                                     </div>
                                 </div>
-                                <div class="row py-2 catalog-item" ng-repeat="preset in presets | filter:searchText">
+                                <div class="row py-2 catalog-item" ng-repeat="preset in filteredPresets = (presets | filter:searchText)">
                                     <div class="col-sm-1">
                                         {{ preset.PackageType }}
                                     </div>

@@ -133,6 +133,7 @@
                                     <div class="col-sm-3 text-right">
                                         <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
                                             <button ng-if="preset.PackageUrl" ng-click="openInBundlingway('gwpreset://open/?' + preset.PackageUrl)" linkTo="{{preset.PackageUrl}}" class="btn btn-outline-primary btn-sm">
+                                                <img ng-src="https://www.google.com/s2/favicons?domain={{preset.PackageUrl}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
                                                 Install
                                             </button>
                                             <a ng-if="preset.PackageUrl" href="{{ preset.PackageUrl }}" class="btn btn-outline-primary btn-sm" download title="Download">
@@ -140,8 +141,8 @@
                                             </a>
                                         </div>
                                         <a ng-if="preset.AlternateUrl" href="{{ preset.AlternateUrl }}" target="_new" class="btn btn-outline-primary bx-pull-right btn-sm">
+                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.AlternateUrl}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
                                             {{ preset.AlternateTitle }}
-                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.AlternateUrl}}" alt="icon" style="width: 16px; height: 16px; margin-left: 5px;">
                                         </a>
                                     </div>
                                 </div>

@@ -122,8 +122,8 @@
                                         {{ preset.PackageType }}
                                     </div>
                                     <div class="col-sm-6 text-truncate">
-                                        <a class="" ng-href="{{preset.SourceUrl}}" target="_new" title="Check it out at {{preset.SourceUrl}}">
-                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.SourceUrl}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
+                                        <a class="" ng-href="{{preset.URLs.Page}}" target="_new" title="Check it out at {{preset.URLs.Page}}">
+                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.URLs.Page}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
                                             <span ng-bind-html="preset.Name" class="htmlComment"></span>
                                         </a>
                                     </div>
@@ -132,16 +132,16 @@
                                     </div>
                                     <div class="col-sm-3 text-right">
                                         <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                            <button ng-if="preset.PackageUrl" ng-click="openInBundlingway('gwpreset://open/?' + preset.PackageUrl)" linkTo="{{preset.PackageUrl}}" class="btn btn-outline-primary btn-sm">
-                                                <img ng-src="https://www.google.com/s2/favicons?domain={{preset.PackageUrl}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
+                                            <a href="#" ng-if="preset.URLs.DirectDownload" ng-click="openInBundlingway('gwpreset://open/?' + preset.URLs.DirectDownload)" linkTo="{{preset.URLs.DirectDownload}}" class="btn btn-outline-primary btn-sm">
+                                                <img ng-src="https://www.google.com/s2/favicons?domain={{preset.URLs.DirectDownload}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
                                                 Install
-                                            </button>
-                                            <a ng-if="preset.PackageUrl" href="{{ preset.PackageUrl }}" class="btn btn-outline-primary btn-sm" download title="Download">
+                                            </a>
+                                            <a ng-if="preset.URLs.DirectDownload" href="{{ preset.URLs.DirectDownload }}" class="btn btn-outline-primary btn-sm" download title="Download">
                                                 <i class="fa-solid fa-download"></i>
                                             </a>
                                         </div>
-                                        <a ng-if="preset.AlternateUrl" href="{{ preset.AlternateUrl }}" target="_new" class="btn btn-outline-primary bx-pull-right btn-sm">
-                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.AlternateUrl}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
+                                        <a ng-if="preset.URLs.IterativeDownload" href="{{ preset.URLs.IterativeDownload }}" target="_new" class="btn btn-outline-primary bx-pull-right btn-sm">
+                                            <img ng-src="https://www.google.com/s2/favicons?domain={{preset.URLs.IterativeDownload}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
                                             {{ preset.AlternateTitle }}
                                         </a>
                                     </div>

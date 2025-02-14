@@ -131,12 +131,12 @@
                                         <span ng-bind-html="preset.Author" class="htmlComment"></span>
                                     </div>
                                     <div class="col-sm-3 text-right">
-                                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                            <a href="#" ng-if="preset.URLs.DirectDownload" ng-click="openInBundlingway('gwpreset://open/?' + preset.URLs.DirectDownload)" linkTo="{{preset.URLs.DirectDownload}}" class="btn btn-outline-primary btn-sm">
+                                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group" ng-if="preset.URLs.DirectDownload">
+                                            <a href="#"  ng-click="openInBundlingway('gwpreset://open/?' + preset.URLs.DirectDownload)" linkTo="{{preset.URLs.DirectDownload}}" class="btn btn-outline-primary btn-sm">
                                                 <img ng-src="https://www.google.com/s2/favicons?domain={{preset.URLs.DirectDownload}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
                                                 Install
                                             </a>
-                                            <a ng-if="preset.URLs.DirectDownload" href="{{ preset.URLs.DirectDownload }}" class="btn btn-outline-primary btn-sm" download title="Download">
+                                            <a ng-if="preset.URLs.OriginalDownloadLink" href="{{ preset.URLs.OriginalDownloadLink }}" class="btn btn-outline-primary btn-sm" download title="Download">
                                                 <i class="fa-solid fa-download"></i>
                                             </a>
                                         </div>

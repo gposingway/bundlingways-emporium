@@ -32,8 +32,13 @@ angular.module('BundlingwaysEmporiumApp', ["ngSanitize"])
         };
 
         $scope.openInBundlingway = function (url) {
+            console.log(url);
             window.location.replace(url);
         }
+
+        $scope.urlEncode = function (str) {
+            return encodeURIComponent(str);
+        };
 
         $http.get('https://www.sightsofeorzea.com/api/data/presetCollection?sort=-PackageType')
             .then(function (response) {

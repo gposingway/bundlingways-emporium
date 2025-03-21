@@ -132,7 +132,7 @@
                                     </div>
                                     <div class="col-sm-3 text-right">
                                         <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group" ng-if="preset.URLs.DirectDownload">
-                                            <a href="#" title="{{preset.URLs.DirectDownload}}" ng-click="openInBundlingway('gwpackage://open/?' + preset.URLs.DirectDownload)" linkTo="{{preset.URLs.DirectDownload}}" class="btn btn-outline-primary btn-sm">
+                                            <a href="#" ng-click="openInBundlingway('gwpackage://open/?name='+ urlEncode(preset.Name) + '&url=' + urlEncode(preset.URLs.DirectDownload))" linkTo="{{preset.URLs.DirectDownload}}" class="btn btn-outline-primary btn-sm">
                                                 <img ng-src="https://www.google.com/s2/favicons?domain={{preset.URLs.DirectDownload}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
                                                 Install
                                             </a>

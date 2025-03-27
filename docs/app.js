@@ -42,6 +42,12 @@ angular.module('BundlingwaysEmporiumApp', ["ngSanitize"])
             window.location.replace(url);
         }
 
+        $scope.openInBundlingway2 = function (name, url) {
+            var payload = { name: name, url: url };
+            var base64Payload = 'gwpackage://open/?package=' + btoa(JSON.stringify(payload));
+            window.location.replace(base64Payload);
+        }
+
         $scope.urlEncode = function (str) {
             return encodeURIComponent(str);
         };

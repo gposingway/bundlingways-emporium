@@ -26,35 +26,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.3/angular-sanitize.min.js" integrity="sha512-dqbRITjlgYAKHWHwL8fK7VPOsFc702ybywomtYLRcjOzBHM3WgEGN0SQQR6IJKY4ZiJiZkNguOAcFZmalk+2sA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="app.js"></script>
-
+    <link rel="stylesheet" href="dark-mode.css">
+    <link rel="stylesheet" href="light-mode.css">
     <style>
         body {
-            background-image: url('assets/be-bg.jpg');
             background-position: bottom center; /* Positions the image at the bottom */
             background-size: cover;
             background-repeat: no-repeat; /* Prevents the image from repeating */
             background-attachment: fixed;
-        }
-
-        .catalog .catalog-item.row:hover {
-            background-color: #e8e9ea;
-        }
-
-        .catalog .catalog-item.row {
-            border: 0px solid #eee;
-            border-width: 1px 0 0 0;
-        }
-
-        .bg-black {
-            background-color: #222 !important;
-        }
-
-        .bg-white {
-            background-color: #fff !important;
-        }
-
-        .bg-black a {
-            color: white;
         }
 
         .catalog a.padded {
@@ -70,14 +49,51 @@
             margin-bottom: 1em;
         }
 
-        .float-right{
-            float:right;
+        .float-right {
+            float: right;
         }
 
-        .faded{
-            opacity:50%;
+        .faded {
+            opacity: 50%;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('darkModeToggle');
+            const darkModeIcon = document.getElementById('darkModeIcon');
+            let darkMode = false;
+
+            function setTheme(isDark) {
+                darkMode = isDark;
+                if (isDark) {
+                    document.body.classList.add('dark-mode');
+                    document.body.classList.remove('light-mode');
+                    darkModeIcon.textContent = '☀️';
+                    toggle.setAttribute('aria-label', 'Enable Light Mode');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    document.body.classList.add('light-mode');
+                    darkModeIcon.textContent = '🌙';
+                    toggle.setAttribute('aria-label', 'Enable Dark Mode');
+                }
+            }
+
+            function setInitialTheme() {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (prefersDark) {
+                    setTheme(true);
+                } else {
+                    setTheme(false);
+                }
+            }
+
+            setInitialTheme();
+
+            toggle.addEventListener('click', function() {
+                setTheme(!darkMode);
+            });
+        });
+    </script>
 </head>
 
 <body ng-controller="PresetController">
@@ -91,6 +107,9 @@
                                 <div class="card-body p-2">
                                     <h4 class="card-title">Bundlingway's Emporium</h4>
                                     <p class="card-text">Welcome to your one-stop hop for the finest ReShade presets and shaders this side of Mare Lamentorum! Curated with Loporrit love.</p>
+                                    <button id="darkModeToggle" class="btn btn-outline-light" aria-label="Enable Dark Mode">
+                                        <span id="darkModeIcon">🌙</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +119,7 @@
                                     <div class="col-sm-1">
                                         <a href="" ng-click="sortBy('PackageType')" class="text-light padded">Type <i class="fa-solid fa-chevron-down"></i></a>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-5">
                                         <a href="" ng-click="sortBy('Name')" class="text-light padded">Name <i class="fa-solid fa-chevron-down"></i></a>
                                         <span class="text-white float-right faded" style="padding-top:5px;" ng-if="!!filteredPresets">
                                             {{filteredPresets.length}} / {{presets.length}} packages
@@ -108,6 +127,9 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <a href="" ng-click="sortBy('Author')" class="text-light padded">Author <i class="fa-solid fa-chevron-down"></i></a>
+                                    </div>
+                                    <div class="col-sm-1 p-0" style="text-align:right;">
+                                        <a href="" ng-click="sortBy('URLs.DirectDownload')" class="text-light padded"><i class="fa-solid fa-chevron-down"></i></a>
                                     </div>
                                     <div class="col-sm-3">
                                         <input type="text"
@@ -121,7 +143,7 @@
                                     <div class="col-sm-1">
                                         {{ preset.PackageType }}
                                     </div>
-                                    <div class="col-sm-6 text-truncate">
+                                    <div class="col-sm-5 text-truncate">
                                         <a class="" ng-href="{{preset.URLs.Page}}" target="_new" title="Check it out at {{preset.URLs.Page}}">
                                             <img ng-src="https://www.google.com/s2/favicons?domain={{preset.URLs.Page}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">
                                             <span ng-bind-html="preset.Name" class="htmlComment"></span>
@@ -130,7 +152,7 @@
                                     <div class="col-sm-2">
                                         <span ng-bind-html="preset.Author" class="htmlComment"></span>
                                     </div>
-                                    <div class="col-sm-3 text-right">
+                                    <div class="col-sm-4 text-right">
                                         <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group" ng-if="preset.URLs.DirectDownload">
                                             <a href="#" ng-click="openInBundlingway('gwpackage://open/?name='+ urlEncode(preset.Name) + '&url=' + urlEncode(preset.URLs.DirectDownload))" linkTo="{{preset.URLs.DirectDownload}}" class="btn btn-outline-primary btn-sm">
                                                 <img ng-src="https://www.google.com/s2/favicons?domain={{preset.URLs.DirectDownload}}" alt="icon" style="width: 16px; height: 16px; margin-right: 5px;">

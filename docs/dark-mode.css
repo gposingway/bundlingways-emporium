@@ -1,0 +1,44 @@
+body.dark-mode {
+  background-color: #222;
+  color: #eee;
+}
+
+.dark-mode .card-title {
+    color: #fff;
+}
+
+.dark-mode .card-text {
+    color: #ddd;
+}
+
+.dark-mode .bg-black {
+    background-color: #222 !important;
+    color: #eee !important;
+}
+
+.dark-mode .bg-white {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+
+.dark-mode .bg-black a {
+    color: #ddd;
+}
+
+.dark-mode a {
+    color: #82c8f1; /* Bootstrap's link color */
+}
+
+.dark-mode .catalog .catalog-item.row:hover {
+    background-color: #2fa4e7;
+    color: #fff;
+}
+
+.dark-mode .form-control.bg-light {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.dark-mode .catalog .catalog-item.row:hover a {
+    color: #fff;
+}

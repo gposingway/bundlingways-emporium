@@ -1,6 +1,6 @@
 angular.module('BundlingwaysEmporiumApp', ["ngSanitize"])
     .controller('PresetController', function ($scope, $http, $location) {
-        $scope.selectedId = null;
+        $scope.selectedPreset = null;
         $scope.year = new Date().getFullYear();
         $scope.lastSortField = null;
         $scope.sortAscending = true;
@@ -13,6 +13,9 @@ angular.module('BundlingwaysEmporiumApp', ["ngSanitize"])
         $scope.$watch('searchText', function (newVal) { $location.search('q', newVal); });
 
         $scope.sortBy = function (field) {
+            const fieldParts = field.split('.');
+            const getField = (obj, parts) => parts.reduce((o, p) => (o ? o[p] : undefined), obj);
+
             if ($scope.lastSortField === field) {
                 $scope.sortAscending = !$scope.sortAscending;
             } else {
@@ -21,10 +24,13 @@ angular.module('BundlingwaysEmporiumApp', ["ngSanitize"])
             $scope.lastSortField = field;
 
             $scope.presets.sort(function (a, b) {
-                if (a[field] < b[field]) {
+                const aValue = getField(a, fieldParts);
+                const bValue = getField(b, fieldParts);
+
+                if (aValue < bValue) {
                     return $scope.sortAscending ? -1 : 1;
                 }
-                if (a[field] > b[field]) {
+                if (aValue > bValue) {
                     return $scope.sortAscending ? 1 : -1;
                 }
                 return 0;
@@ -38,6 +44,11 @@ angular.module('BundlingwaysEmporiumApp', ["ngSanitize"])
 
         $scope.urlEncode = function (str) {
             return encodeURIComponent(str);
+        };
+
+        $scope.showDetails = function (id) {
+            $scope.selectedPreset = $scope.presets.find(preset => preset.Id === id);
+            document.getElementById('detailsPanel').style.display = 'block';
         };
 
         $http.get('https://www.sightsofeorzea.com/api/data/presetCollection?sort=-PackageType')

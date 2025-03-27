@@ -1,0 +1,43 @@
+body.light-mode {
+    /* Add any specific light-mode body overrides if needed, otherwise defaults will apply */
+}
+
+.light-mode .catalog .catalog-item.row:hover {
+    background-color: #e8e9ea;
+    color: #000; /* Ensure text color contrasts with hover background */
+}
+
+.light-mode .bg-white {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+.light-mode .bg-black {
+    background-color: #222 !important;
+    color: #fff !important;
+}
+
+.light-mode .bg-black a {
+    color: white;
+}
+
+.light-mode .form-control.bg-light {
+    background-color: #f8f9fa !important;
+    color: #495057 !important;
+}
+
+.light-mode .card-title {
+    color: #000; /* Default card title color for light mode */
+}
+
+.light-mode .card-text {
+    color: #495057; /* Default card text color for light mode */
+}
+
+.light-mode a {
+    color: #2fa4e7; /* Default link color for light mode */
+}
+
+.light-mode .catalog .catalog-item.row:hover a {
+    color: #000; /* Link color on hover in light mode */
+}

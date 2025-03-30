@@ -7,7 +7,7 @@ angular.module('BundlingwaysEmporiumApp', ["ngSanitize"])
         $scope.searchText = $location.search().q || '';
 
         $scope.UI = {
-            selectedId : null
+            selectedId: null
         };
 
         $scope.$watch('searchText', function (newVal) { $location.search('q', newVal); });
@@ -44,8 +44,13 @@ angular.module('BundlingwaysEmporiumApp', ["ngSanitize"])
 
         $scope.openInBundlingway2 = function (name, url) {
             var payload = { name: name, url: url };
-            var base64Payload = 'gwpackage://open/?package=' + btoa(JSON.stringify(payload));
-            window.location.replace(base64Payload);
+
+            var base64Payload = btoa(JSON.stringify(payload).replace(/[\u00A0-\u2666]/g, function (c) {
+                return '&#' + c.charCodeAt(0) + ';';
+            }));
+
+            var url = 'gwpackage://open/?package=' + base64Payload;
+            window.location.replace(url);
         }
 
         $scope.urlEncode = function (str) {

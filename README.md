@@ -36,6 +36,6 @@ Prefer to install presets manually? Follow these steps:
 Got a favorite preset collection you think should be included? Help expand the Emporium with new and exciting finds from the community!
 
 If you have a great source to add or need a link removed, please reach out through:
-- **GitHub Issues** – Submit a request [here](https://github.com/bundlingway/emporium/issues)
+- **GitHub Issues** – Submit a request [here](https://github.com/gposingway/bundlingways-emporium/issues)
 - **Discord** – Hop into the [Sights of Eorzea community server](https://discord.com/servers/sights-of-eorzea-1124828911700811957) and drop a message!
 - **BlueSky** – Reach out to [Leon Aquitaine](https://bsky.app/profile/leon.aquitaine.social)!
